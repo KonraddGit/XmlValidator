@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace XmlValidator.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class FileValidationTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckingIfStringValueIsDifferentThanNull()
         {
-
+            
         }
     }
 }
