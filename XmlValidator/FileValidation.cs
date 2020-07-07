@@ -2,39 +2,58 @@
 using System.Xml;
 using System.Xml.Schema;
 
-namespace XmlValidator
+namespace XmlValidation
 {
     public class XmlValidator
     {
-        public XmlValidator(string xsdPath, string xmlPath)
+        
+        public XmlValidator(string xmlPath, string xsdPath)
         {
-            Validate(xsdPath, xmlPath);
+            XmlSchemaSet schemaSet = new XmlSchemaSet();
+            schemaSet.Add(null, xsdPath);
+
+            Validate(schemaSet, xmlPath);
         }
-
-        private void Validate(string xsdPath, string xmlPath)
+        
+        private void Validate(XmlSchemaSet schemaSet, string xmlPath)
         {
-            XmlReaderSettings settings = new XmlReaderSettings();
 
-            settings.Schemas.Add(null, xsdPath);
-            settings.ValidationType = ValidationType.Schema;
+            XmlSchema compiledSchema = null;
+
+            foreach (XmlSchema schema in schemaSet.Schemas())
+            {
+                compiledSchema = schema;
+            }
+
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.Schemas.Add(compiledSchema);
             settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessInlineSchema;
             settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessSchemaLocation;
             settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
             settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
-            
 
-            XmlReader reader = XmlReader.Create(xmlPath, settings);
-            while (reader.Read()) ;
+            settings.ValidationType = ValidationType.Schema;
+
+            using (var reader = XmlReader.Create(xmlPath, settings))
+            {
+                while (reader.Read()) ;
+            };
+
         }
 
-        private static void ValidationCallBack(object sender, ValidationEventArgs args)
+        private void ValidationCallBack(object sender, ValidationEventArgs args)
         {
-            if (args.Severity == XmlSeverityType.Warning)
-                Console.WriteLine($"Warning: Matching schema not found. {args.Message}");
-            else
-                Console.WriteLine($"Validation error: {args.Exception.LineNumber}, {args.Message}");
+            switch (args.Severity)
+            {
+                case XmlSeverityType.Error:
+                    Console.WriteLine($"Error w lini {args.Exception.LineNumber}, {args.Message}");
+                    break;
+                case XmlSeverityType.Warning:
+                    Console.WriteLine($"Warning w lini {args.Exception.LineNumber}, {args.Message}");
+                    break;
+            }
         }
     }
-    
-   
+
+
 }
