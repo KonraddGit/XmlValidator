@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using XmlValidation.Models;
 using System.Linq;
+using System.Diagnostics;
 
 namespace XmlValidation
 {
@@ -61,22 +62,19 @@ namespace XmlValidation
             urlListWithoutDuplicates = urlList.Distinct().ToList();
         }
 
-        private bool RemoteFileExists(string url)
+        public bool RemoteFileExists(string URL)
         {
             try
             {
-                HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-                request.Method = "GET";
-                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-                response.Close();
-
-                return (response.StatusCode == HttpStatusCode.OK);
+                WebClient wc = new WebClient();
+                string HTMLSource = wc.DownloadString(URL);
+                return true;
             }
-            catch
+            catch (Exception)
             {
                 return false;
             }
         }
-
+        
     }
 }
