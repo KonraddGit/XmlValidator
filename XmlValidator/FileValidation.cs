@@ -1,59 +1,58 @@
 ﻿using System;
+using System.IO;
 using System.Xml;
 using System.Xml.Schema;
+using XmlValidation.Models;
 
 namespace XmlValidation
 {
     public class XmlValidator
     {
-        
-        public XmlValidator(string xmlPath, string xsdPath)
-        {
-            XmlSchemaSet schemaSet = new XmlSchemaSet();
-            schemaSet.Add(null, xsdPath);
 
-            Validate(schemaSet, xmlPath);
+        public XmlValidator(string xmlPath, string xsdPath, Links link)
+        {
+            LinksCheck linksCheck = new LinksCheck();
+            linksCheck.AddLinksToListAndDeleteDuplicates(xsdPath, xmlPath);
+            linksCheck.ListOfUrls();
+            linksCheck.CheckUrlAndReturnIfFalse(link);
+
+            Validator(xsdPath, xmlPath);
         }
-        
-        private void Validate(XmlSchemaSet schemaSet, string xmlPath)
+
+
+        private void Validator(string xsdPath, string xmlPath)
         {
 
-            XmlSchema compiledSchema = null;
-
-            foreach (XmlSchema schema in schemaSet.Schemas())
+            try
             {
-                compiledSchema = schema;
-            }
 
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.Schemas.Add(compiledSchema);
-            settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessInlineSchema;
-            settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessSchemaLocation;
-            settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
-            settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
+                ValidationEvents validationEvents = new ValidationEvents();
+                XmlReaderSettings Xsettings = new XmlReaderSettings();
+                Xsettings.Schemas.Add(null, xsdPath);
 
-            settings.ValidationType = ValidationType.Schema;
+                Xsettings.ValidationFlags |= XmlSchemaValidationFlags.ProcessInlineSchema;
+                Xsettings.ValidationFlags |= XmlSchemaValidationFlags.ProcessSchemaLocation;
+                Xsettings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+                Xsettings.ValidationEventHandler += new ValidationEventHandler(validationEvents.ValidationCallBack);
 
-            using (var reader = XmlReader.Create(xmlPath, settings))
-            {
+                Xsettings.ValidationType = ValidationType.Schema;
+
+                XmlDocument document = new XmlDocument();
+                document.Load(xmlPath);
+
+                XmlReader reader = XmlReader.Create(new StringReader(document.InnerXml), Xsettings);
+
+
                 while (reader.Read()) ;
-            };
 
-        }
-
-        private void ValidationCallBack(object sender, ValidationEventArgs args)
-        {
-            switch (args.Severity)
+                Console.WriteLine("Success");
+            }
+            catch (Exception e)
             {
-                case XmlSeverityType.Error:
-                    Console.WriteLine($"Error w lini {args.Exception.LineNumber}, {args.Message}");
-                    break;
-                case XmlSeverityType.Warning:
-                    Console.WriteLine($"Warning w lini {args.Exception.LineNumber}, {args.Message}");
-                    break;
+                Console.WriteLine(e.Message.ToString());
             }
         }
     }
 
-
 }
+
