@@ -14,7 +14,7 @@ namespace XmlValidation
             LinksCheck linksCheck = new LinksCheck();
             linksCheck.AddLinksToListAndDeleteDuplicates(xsdPath, xmlPath);
             linksCheck.ListOfUrls();
-            linksCheck.CheckUrlAndReturnIfFalse(link);
+            linksCheck.CheckUrlAndReturnIfFalse();
 
             Validator(xsdPath, xmlPath);
         }
@@ -45,7 +45,7 @@ namespace XmlValidation
 
                 while (reader.Read()) ;
 
-                Console.WriteLine("Success");
+                Console.WriteLine("\n Successful Validation");
             }
             catch (Exception e)
             {

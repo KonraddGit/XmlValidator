@@ -12,26 +12,26 @@ namespace XmlValidation
     {
         private List<string> urlList = new List<string>();
         private List<string> urlListWithoutDuplicates = new List<string>();
-        public void CheckUrlAndReturnIfFalse(Links link)
+        public void CheckUrlAndReturnIfFalse()
         {
-            Console.WriteLine("Fałszywe linki");
+            Console.WriteLine("\n Not Working Links");
 
             foreach (var item in urlListWithoutDuplicates)
             {
                 if (RemoteFileExists(item) == false)
                 {
-                    Console.WriteLine(item);
+                    Console.WriteLine($"Link not responding -> {item}");
                 }
-                else
+                else if (RemoteFileExists(item) == true)
                 {
-                    Console.Write(" - brak");
+                    Console.WriteLine($"Link works -> {item}");
                 }
             }
         }
 
         public void ListOfUrls()
         {
-            Console.WriteLine("lista wszystkich url");
+            Console.WriteLine(" All Url Links");
 
             foreach (var item in urlListWithoutDuplicates)
             {
@@ -44,8 +44,8 @@ namespace XmlValidation
             string pageXsd = File.ReadAllText(xsdPath);
             string pageXml = File.ReadAllText(xmlPath);
 
-            var linkParser = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
+            var linkParser = new Regex(@"((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            
 
             foreach (Match link in linkParser.Matches(pageXsd))
             {
