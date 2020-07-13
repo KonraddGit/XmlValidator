@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
@@ -8,6 +8,7 @@ namespace XmlValidation
 {
     public class XmlValidator
     {
+        Results results = new Results(2);
 
         public XmlValidator(string xmlPath, string xsdPath, Links link)
         {
@@ -46,10 +47,15 @@ namespace XmlValidation
                 while (reader.Read()) ;
 
                 Console.WriteLine("\n Successful Validation");
+                results.StatusOfValidation(1);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message.ToString());
+                results.StatusOfValidation(0);
+                Errors error = new Errors(28, e.Message.ToString());//28?
+                results.Add(error);
+
             }
         }
     }
