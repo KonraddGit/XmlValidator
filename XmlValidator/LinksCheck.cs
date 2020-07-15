@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.IO;
 using System.Collections.Generic;
@@ -60,6 +60,10 @@ namespace XmlValidation
             }
 
             urlListWithoutDuplicates = urlList.Distinct().ToList();
+            var urlListWithDuplicates = new List<string>();
+            urlListWithDuplicates = urlListWithoutDuplicates;
+            MakingListOfLinks(urlListWithDuplicates, 0);
+            //TODO usunąć powtórzenia z urlListWithDuplicates
         }
 
         public bool RemoteFileExists(string URL)
@@ -76,5 +80,34 @@ namespace XmlValidation
             }
         }
         
+        public List<string> CheckLink(string link)
+        {
+            WebClient wc = new WebClient();
+            var webpage = wc.DownloadString(link);
+            var tempList = new List<string>();
+            tempList = LinksFromWebpage(webpage);//catch exception? not connecting
+            return tempList;
+            
+        }
+        private List<string> LinksFromWebpage(string webpage)
+        {
+            var listOfLinks = new List<string>();
+
+            var linkParser = new Regex(@"((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+            foreach (Match link in linkParser.Matches(webpage))
+            {
+                listOfLinks.Add(link.ToString());
+            }
+            return listOfLinks;
+        }
+        public void MakingListOfLinks(List<string> lista, int i)
+        {
+            if (i < lista.Count)
+            {
+                lista.AddRange(CheckLink(lista[i]));
+                MakingListOfLinks(lista, i++);
+            }
+        }
     }
 }
