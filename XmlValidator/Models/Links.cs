@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace XmlValidation.Models
 {
+
     public class Links
-    {   
+    {
+        public List<string> urlListWithoutDuplicates = new List<string>();
         public string Url { get; set; }
     }
 }

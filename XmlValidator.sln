@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlValidator", "XmlValidato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlValidator.Tests", "XmlValidator.Tests\XmlValidator.Tests.csproj", "{D459DEE9-5A20-48C8-9083-9D092FB0761D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlValidatorStartup", "ConsoleApp1\XmlValidatorStartup.csproj", "{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

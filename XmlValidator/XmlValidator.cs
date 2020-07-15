@@ -2,21 +2,22 @@
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
-using XmlValidation.Models;
 
 namespace XmlValidation
 {
     public class XmlValidator
     {
-
-        public XmlValidator(string xmlPath, string xsdPath, Links link)
+        public XmlValidator(string xmlPath, string xsdPath)
         {
             LinksCheck linksCheck = new LinksCheck();
             linksCheck.AddLinksToListAndDeleteDuplicates(xsdPath, xmlPath);
-            linksCheck.ListOfUrls();
-            linksCheck.CheckUrlAndReturnIfFalse();
+            //linksCheck.ListOfUrls();
+            //linksCheck.CheckUrlAndReturnIfFalse();
+            linksCheck.GetUrlsString(xsdPath);
 
-            Validator(xsdPath, xmlPath);
+            //linksCheck.GetUrls(xsdPath);
+
+            //Validator(xsdPath, xmlPath);
         }
 
 
@@ -50,6 +51,7 @@ namespace XmlValidation
             catch (Exception e)
             {
                 Console.WriteLine(e.Message.ToString());
+
             }
         }
     }
