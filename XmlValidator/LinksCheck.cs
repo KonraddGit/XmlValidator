@@ -4,6 +4,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace XmlValidation
 {
@@ -80,11 +82,10 @@ namespace XmlValidation
             var newList = new List<string>();
 
             var webpage = GetHttpPage(url);
-            var selectLink = File.ReadAllText(webpage);
 
             var linkParser = new Regex(@"((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-            foreach (Match link in linkParser.Matches(selectLink))
+            foreach (Match link in linkParser.Matches(webpage))
             {
                 newList.Add(link.ToString());
             }
@@ -95,6 +96,7 @@ namespace XmlValidation
         {
             WebClient wc = new WebClient();
             var webpage = wc.DownloadString(url);
+            Console.WriteLine(webpage);
             return webpage;
         }
 
@@ -107,6 +109,7 @@ namespace XmlValidation
             {
                 foreach (var item in links)
                 {
+                    GetHttpPage(item);
                     result.AddRange(GetUrlsString(item));
                 }
             }
@@ -115,6 +118,7 @@ namespace XmlValidation
             Console.WriteLine(result);
             return result;
         }
+
         //todo end
 
     }

@@ -14,7 +14,6 @@ namespace XmlValidation
             //linksCheck.ListOfUrls();
             //linksCheck.CheckUrlAndReturnIfFalse();
             linksCheck.GetUrlsString(xsdPath);
-
             //linksCheck.GetUrls(xsdPath);
 
             //Validator(xsdPath, xmlPath);
