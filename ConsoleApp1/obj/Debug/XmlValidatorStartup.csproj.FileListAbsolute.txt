@@ -7,3 +7,6 @@ C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\Cons
 C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\ConsoleApp1\obj\Debug\XmlValidatorStartup.csproj.CopyComplete
 C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\ConsoleApp1\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\ConsoleApp1\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\ConsoleApp1\bin\Debug\HtmlAgilityPack.xml

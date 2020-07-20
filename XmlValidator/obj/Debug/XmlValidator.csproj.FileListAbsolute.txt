@@ -3,3 +3,7 @@ C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlV
 C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\obj\Debug\XmlValidator.csprojAssemblyReference.cache
 C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\obj\Debug\XmlValidator.dll
 C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\obj\Debug\XmlValidator.pdb
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Konrad\Desktop\Work\Repozytorium Lokalne\xmlvalidator\XmlValidator\XmlValidator\obj\Debug\XmlValidator.csproj.CopyComplete

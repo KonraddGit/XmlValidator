@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.24.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.24\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetAllFiles.cs" />
-    <Compile Include="LinksCheck.cs" />
+    <Compile Include="AddingLinks.cs" />
     <Compile Include="XmlValidator.cs" />
     <Compile Include="Models\Links.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationEvents.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

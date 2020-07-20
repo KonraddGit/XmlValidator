@@ -9,44 +9,51 @@ namespace XmlValidation
 {
     public class GetAllFiles
     {
-        private List<string> GetLinkFromFile(string url)
+        private readonly AddingLinks addingLinks = new AddingLinks();
+
+        //public List<string> GetUrlsString(string url)
+        //{
+        //    var result = new List<string>();
+        //    var links = GetLinkFromFile(url);
+
+        //    if (links.Count() > 0)
+        //    {
+        //        foreach (var item in links)
+        //        {
+        //            GetHttpPage(item);
+        //            result.AddRange(GetUrlsString(item));
+        //        }
+        //    }
+
+        //    result.AddRange(GetUrlsString(url));
+        //    Console.WriteLine(result);
+        //    return result;
+        //}
+
+
+        public void ShowAndDownload(string url, string xmlPath)
         {
-            var newList = new List<string>();
-
-            string pageXsd = File.ReadAllText(url);
-            var linkParser = new Regex(@"((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
-            foreach (Match link in linkParser.Matches(pageXsd))
+            if (url.Contains(".xsd"))
             {
-                newList.Add(link.ToString());
+                addingLinks.AddLinksToDictionaryFromLocalXsd(url);
             }
-            return newList;
-        }
-
-        private string GetHttpPage(string url)
-        {
-            WebClient wc = new WebClient();
-            var webpage = wc.DownloadString(url);
-            return webpage;
-        }
-
-        public List<string> GetUrlsString(string url)
-        {
-            var result = new List<string>();
-            var links = GetLinkFromFile(url);
-
-            if (links.Count() > 0)
+            else addingLinks.AddLinksToDictionaryFromHtml(url);
+            
+            if (xmlPath.Contains(".xml"))
             {
-                foreach (var item in links)
-                {
-                    GetHttpPage(item);
-                    result.AddRange(GetUrlsString(item));
-                }
+                addingLinks.AddLinksToDictionaryFromLocalXml(xmlPath);
             }
 
-            result.AddRange(GetUrlsString(url));
-            Console.WriteLine(result);
-            return result;
+
+            foreach (var item in addingLinks.urlList)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            foreach (var item in addingLinks.notWorkingLinks)
+            {
+                Console.WriteLine(item);
+            }
         }
 
     }

@@ -9,14 +9,9 @@ namespace XmlValidation
     {
         public XmlValidator(string xmlPath, string xsdPath)
         {
-            LinksCheck linksCheck = new LinksCheck();
-            linksCheck.AddLinksToListAndDeleteDuplicates(xsdPath, xmlPath);
-            //linksCheck.ListOfUrls();
-            //linksCheck.CheckUrlAndReturnIfFalse();
-            linksCheck.GetUrlsString(xsdPath);
-            //linksCheck.GetUrls(xsdPath);
+            GetAllFiles getAllFiles = new GetAllFiles();
 
-            //Validator(xsdPath, xmlPath);
+            getAllFiles.ShowAndDownload(xsdPath,xmlPath);
         }
 
 
