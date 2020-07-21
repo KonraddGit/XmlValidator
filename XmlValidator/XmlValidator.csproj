@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="GetAllFiles.cs" />
     <Compile Include="AddingLinks.cs" />
+    <Compile Include="Struct.cs" />
     <Compile Include="XmlValidator.cs" />
     <Compile Include="Models\Links.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

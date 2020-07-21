@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Net;
-using System.Text.RegularExpressions;
 using System;
-using System.IO;
 using System.Linq;
 
 namespace XmlValidation
@@ -10,34 +7,32 @@ namespace XmlValidation
     public class GetAllFiles
     {
         private readonly AddingLinks addingLinks = new AddingLinks();
-
-        //public List<string> GetUrlsString(string url)
+        
+        //public Dictionary<string,string> GetUrlsString(string url)
         //{
         //    var result = new List<string>();
-        //    var links = GetLinkFromFile(url);
 
         //    if (links.Count() > 0)
         //    {
         //        foreach (var item in links)
         //        {
-        //            GetHttpPage(item);
-        //            result.AddRange(GetUrlsString(item));
+        //            result.Add(GetUrlsString(item));
         //        }
         //    }
 
-        //    result.AddRange(GetUrlsString(url));
-        //    Console.WriteLine(result);
+        //    result.Add(GetUrlsString(url));
+
         //    return result;
         //}
 
 
-        public void ShowAndDownload(string url, string xmlPath)
+        public void ShowAndDownload(string xsdPath, string xmlPath)
         {
-            if (url.Contains(".xsd"))
+            if (xsdPath.Contains(".xsd"))
             {
-                addingLinks.AddLinksToDictionaryFromLocalXsd(url);
+                addingLinks.AddLinksToDictionaryFromLocalXsd(xsdPath);
             }
-            else addingLinks.AddLinksToDictionaryFromHtml(url);
+            else addingLinks.AddLinksToDictionaryFromHtmlAndDownload(xsdPath);
             
             if (xmlPath.Contains(".xml"))
             {

@@ -15,25 +15,10 @@ namespace XmlValidation
         public List<string> notWorkingLinks = new List<string>();
 
 
-        //public Dictionary<string,string> UrlList
-        //{
-        //    get => urlList;
-        //    set
-        //    {
-        //        var query = urlList.GroupBy(x => x)
-        //            .Where(x => x.Count() < 2)
-        //            .Select(x => x.Key)
-        //            .ToList();
-
-        //        query = value;
-        //    }
-        //}
-
         public void AddLinksToDictionaryFromLocalXsd(string xsdPath)
         {
             var pageXsd = File.ReadAllText(xsdPath);
             var linkParser = new Regex(@"((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
 
             foreach (Match link in linkParser.Matches(pageXsd))
             {
@@ -44,9 +29,8 @@ namespace XmlValidation
                     urlList.Add(link.ToString(), formated);
                 }
             }
-
-
         }
+
         public void AddLinksToDictionaryFromLocalXml(string xmlPath)
         {
             var pageXml = File.ReadAllText(xmlPath);
@@ -63,8 +47,7 @@ namespace XmlValidation
             }
         }
 
-        //metoda pobierania linkow z html i wrzucanie ich do dictionary
-        public void AddLinksToDictionaryFromHtml(string url)
+        public void AddLinksToDictionaryFromHtmlAndDownload(string url)
         {
             string newLink = "";
             string formatedLink = "";
@@ -94,11 +77,9 @@ namespace XmlValidation
                     }
                 }
             }
-
             DownloadFilesFromHtml();
         }
 
-        //sprawdza czy adres odpowiada
         private bool RemoteFileExists(string url)
         {
             try
@@ -114,9 +95,6 @@ namespace XmlValidation
             }
         }
 
-        
-
-        //pobierania plikow z listy
         public void DownloadFilesFromHtml()
         {
             using (var client = new WebClient())
