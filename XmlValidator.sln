@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlValidator", "XmlValidato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlValidator.Tests", "XmlValidator.Tests\XmlValidator.Tests.csproj", "{D459DEE9-5A20-48C8-9083-9D092FB0761D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlValidatorStartup", "ConsoleApp1\XmlValidatorStartup.csproj", "{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D459DEE9-5A20-48C8-9083-9D092FB0761D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D459DEE9-5A20-48C8-9083-9D092FB0761D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D459DEE9-5A20-48C8-9083-9D092FB0761D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D137CADE-CD7B-4932-B7C3-FDF5E7A4F05E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deklaracja xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/" xmlns:zzu="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/ORDZU/" xmlns:vzd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2019/02/07/eD/VATZD/" xmlns="http://crd.gov.pl/wzor/2019/11/08/8836/">
+  <Naglowek>
+    <KodFormularza kodSystemowy="VAT-7 (20)" kodPodatku="VAT" rodzajZobowiazania="Z" wersjaSchemy="1-0E">VAT-7</KodFormularza>
+    <WariantFormularza>20</WariantFormularza>
+    <CelZlozenia poz="P_7">2</CelZlozenia>
+    <Rok>2020</Rok>
+    <Miesiac>5</Miesiac>
+    <KodUrzedu>2404</KodUrzedu>
+  </Naglowek>
+  <Podmiot1 rola="Podatnik">
+    <OsobaNiefizyczna>
+      <NIP>1215452365</NIP>
+      <PelnaNazwa>Testów sp. z o.o.</PelnaNazwa>
+    </OsobaNiefizyczna>
+  </Podmiot1>
+  <PozycjeSzczegolowe>
+    <P_17>0</P_17>
+    <P_18>0</P_18>
+    <P_19>101010</P_19>
+    <P_20>15045</P_20>
+    <P_21>0</P_21>
+    <P_23>0</P_23>
+    <P_24>0</P_24>
+    <P_31>0</P_31>
+    <P_34>0</P_34>
+    <P_35>0</P_35>
+    <P_40>252500</P_40>
+    <P_41>20550</P_41>
+    <P_42>80520</P_42>
+    <P_45>90856</P_45>
+    <P_46>72208</P_46>
+    <P_51>15024</P_51>
+    <P_52>0</P_52>
+    <P_53>0</P_53>
+    <P_54>0</P_54>
+    <P_56>138959</P_56>
+    <P_62>123502</P_62>
+    <P_69>1</P_69>
+    <P_70>2</P_70>
+    <P_74>600100100</P_74>
+    <P_75>2020-05-13</P_75>
+  </PozycjeSzczegolowe>
+  <Pouczenia>1</Pouczenia>
+</Deklaracja>
