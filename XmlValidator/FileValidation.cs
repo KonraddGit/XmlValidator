@@ -3,12 +3,17 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using XmlValidation.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace XmlValidation
 {
     public class XmlValidator
     {
-        Results results = new Results(2);
+        public Results results = new Results(2);
 
         public XmlValidator(string xmlPath, string xsdPath, Links link)
         {
@@ -49,18 +54,19 @@ namespace XmlValidation
                 Console.WriteLine("\n Successful Validation");
                 results.StatusOfValidation(1);
             }
+            catch (XmlException xe)
+            {
+                results.StatusOfValidation(0);
+                Console.WriteLine(xe.Message, xe.LineNumber, xe.LinePosition);
+                Errors error = new Errors(xe.LineNumber, xe.Message.ToString());
+                results.Add(error);
+            }
             catch (Exception e)
             {
-                // Get stack trace for the exception with source file information
-                var st = new StackTrace(e, true);
-                // Get the top stack frame
-                var frame = st.GetFrame(0);
-                // Get the line number from the stack frame
-                var line = frame.GetFileLineNumber();
-                //
+                
                 Console.WriteLine(e.Message.ToString());
                 results.StatusOfValidation(0);
-                Errors error = new Errors(line, e.Message.ToString());
+                Errors error = new Errors(0, e.Message.ToString());
                 results.Add(error);
 
             }
