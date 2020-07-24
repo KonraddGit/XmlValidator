@@ -10,12 +10,17 @@ namespace XmlValidation
     public class XmlValidator
     {
         Results results = new Results(2);
-        public XmlValidator(string xmlPath, string xsdPath)
+        public XmlValidator(string filePath)
         {
-            GetAllFiles getAllFiles = new GetAllFiles();
+            //GetAllFiles getAllFiles = new GetAllFiles();
+            AddingLinks addingLinks = new AddingLinks();
 
-            var url = getAllFiles.ShowAndDownload(xsdPath, xmlPath);
-            getAllFiles.GetUrlsString(url.ToString());
+            addingLinks.GetFilesRecursive(filePath);
+
+            // var url = getAllFiles.ShowAndDownload(xsdPath, xmlPath);
+            // getAllFiles.GetUrlsString(url.ToString());
+
+            //getAllFiles.GetFiles(filePath);
         }
 
 

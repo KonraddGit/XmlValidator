@@ -6,18 +6,18 @@ namespace XmlValidation
     {
         //http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/
         // — kopia
+        
         static void Main(string[] args)
         {
-            string FilePath = "C:/Users/Konrad/Desktop/Work/Repozytorium Lokalne/PlikiXml";
+            string filePath = "C:/Users/Konrad/Desktop/Work/Repozytorium Lokalne/PlikiXml/";
             //string xmlPath = $"{FilePath}/deklaracja.xml";
             //string xsdPath = $"{FilePath}/schematzly.xsd";
             string xmlPath = $"deklaracja.xml";
             string xsdPath = $"http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/";
 
 
-            XmlValidator xmlValidator = new XmlValidator(xmlPath, xsdPath);
+            XmlValidator xmlValidator = new XmlValidator(filePath);
 
-            GetAllFiles getAllFiles = new GetAllFiles();
 
             Console.ReadLine();
         }

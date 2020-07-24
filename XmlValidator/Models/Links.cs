@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace XmlValidation.Models
 {
 
     public class Links
     {
-        public List<string> urlListWithoutDuplicates = new List<string>();
-        public string Url { get; set; }
+        private string xmlPath = $"deklaracja.xml";
+        private string xsdPath = $"http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/";
+        public string XsdPath { get; set; }
+        public string XmlPath { get; set; }
     }
 }
