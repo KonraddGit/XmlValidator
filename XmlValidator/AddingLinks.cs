@@ -52,14 +52,14 @@ namespace XmlValidation
         }
 
         public List<string> AddLinksToDictionaryFromHtmlAndDownload(string url)
-        { 
+        {
             string newLink = "";
             string formatedLink = "";
 
             HtmlWeb htmlWeb = new HtmlWeb();
 
             HtmlDocument document = new HtmlDocument();
-           
+
             if (url != "http://www.w3.org/2001/XMLSchema" && url != "System.Collections.Generic.List`1[System.String]")
             {
                 document = htmlWeb.Load(url);
@@ -76,9 +76,12 @@ namespace XmlValidation
 
                         if (RemoteFileExists(newLink) == true)
                         {
-                            urlDictionary.Add(newLink, formatedLink);
+                            if (!urlDictionary.ContainsKey(newLink))
+                            {
+                                urlDictionary.Add(newLink, formatedLink);
 
-                            UrlList.Add(newLink.ToString());
+                                UrlList.Add(newLink.ToString());
+                            }
                         }
                         else
                         {
@@ -120,8 +123,9 @@ namespace XmlValidation
 
         public void DownloadFile(string url)
         {
-            var formated = url.Substring(10);
-            
+            var formated = Path.GetFileName(url);
+
+
             if (!urlDictionary.ContainsKey(url))
             {
                 urlDictionary.Add(url, formated);
@@ -150,7 +154,7 @@ namespace XmlValidation
             {
                 DownloadFile(link);
             }
-            else
+            else if (!link.Contains(".xsl"))
             {
                 UrlList.Add(AddLinksToDictionaryFromHtmlAndDownload(link).ToString());
             }
@@ -158,21 +162,18 @@ namespace XmlValidation
 
         public List<string> GetFilesRecursive(string link)
         {
-            var tempList = new List<string>();
-
             SearchDirectoryForFiles();
+
+            result = UrlList.ToList();
 
             foreach (var item in result)
             {
                 GetLinksFromLink(item);
-                
+                Console.WriteLine(item);
             }
 
-            foreach (var item in UrlList)
-            {
-                
-                GetFilesRecursive(item);
-            }
+            GetFilesRecursive(link);
+
 
             return UrlList.ToList();
         }
