@@ -125,7 +125,6 @@ namespace XmlValidation
         {
             var formated = Path.GetFileName(url);
 
-
             if (!urlDictionary.ContainsKey(url))
             {
                 urlDictionary.Add(url, formated);
@@ -144,7 +143,7 @@ namespace XmlValidation
             }
         }
 
-        public void GetLinksFromLink(string link)
+        public List<string> GetLinksFromLink(string link)
         {
             if (link.Contains(filePath))
             {
@@ -158,6 +157,8 @@ namespace XmlValidation
             {
                 UrlList.Add(AddLinksToDictionaryFromHtmlAndDownload(link).ToString());
             }
+
+            return UrlList.ToList();
         }
 
         public List<string> GetFilesRecursive(string link)
