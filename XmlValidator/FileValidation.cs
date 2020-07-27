@@ -53,6 +53,7 @@ namespace XmlValidation
 
                 Console.WriteLine("\n Successful Validation");
                 results.StatusOfValidation(1);
+                results.PrintErrors();
             }
             catch (XmlException xe)
             {
@@ -85,6 +86,10 @@ namespace XmlValidation
             this.lineNumber = lineNumber;
             this.errorSubstance = errorSubstance;
         }
+        public void Print()
+            {
+                Console.WriteLine($"błąd w linii {lineNumber}, treść:  {errorSubstance}");
+            }
     }
     /*
     //deklarowanie struktury:
@@ -151,6 +156,14 @@ namespace XmlValidation
         {
             ErrorList.Add(error);
         }
+
+        public void PrintErrors()
+            {
+                foreach (Errors element in ErrorList)
+                {
+                    element.Print();
+                }
+            }
     }
 
 }
