@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Xml;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace XmlValidation
+namespace XmlValidation.Tests
 {
-    class Program
+    [TestClass]
+    public class XmlValidatiorTest
     {
-        //http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/
-        // — kopia
-        
-        static void Main(string[] args)
+        [TestMethod]
+        public void CheckingIfStringValueIsDifferentThanNull()
         {
             string filePath = "C:/Users/Konrad/Desktop/Work/Repozytorium Lokalne/xmlvalidator/XmlValidator/ConsoleApp1/bin/Debug/";
             string xmlPath = $"deklaracja.xml";
@@ -15,9 +16,7 @@ namespace XmlValidation
 
             XmlValidator xmlValidator = new XmlValidator(xsdPath, xmlPath, filePath);
 
-
-            Console.ReadLine();
+            
         }
-        
     }
 }

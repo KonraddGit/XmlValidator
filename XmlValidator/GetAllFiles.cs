@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Linq;
-using XmlValidation.Models;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net;
@@ -15,6 +14,8 @@ namespace XmlValidation
         public HashSet<string> fileList = new HashSet<string>();
         public Dictionary<string, string> urlDictionary = new Dictionary<string, string>();
         public string filePath = "C:/Users/Konrad/Desktop/Work/Repozytorium Lokalne/xmlvalidator/XmlValidator/ConsoleApp1/bin/Debug/";
+
+        public Dictionary<string, string> notWorkingLink = new Dictionary<string, string>();
         public List<string> AddLinksToDictionaryFromHtmlAndDownload(string url)
         {
             var UrlList = new List<string>();
@@ -33,11 +34,17 @@ namespace XmlValidation
                 {
                     string hrefValue = link.GetAttributeValue("href", string.Empty);
 
-                    if (hrefValue.Substring(2) != "")
+                    if (RemoteFileExists(hrefValue) == true)
+                    {
+                        UrlList.Add(hrefValue);
+                    }
+
+                    if (hrefValue.Substring(1) != "." || hrefValue.Substring(0) == "h")
                     {
                         formatedLink = hrefValue.Substring(2);
 
                         newLink = $"{url}" + $"{formatedLink}";
+
                         if (RemoteFileExists(newLink) == true)
                         {
                             UrlList.Add(newLink.ToString());
@@ -48,6 +55,7 @@ namespace XmlValidation
 
             return UrlList;
         }
+
         public void DownloadFilesFromHtml()
         {
             using (var client = new WebClient())
@@ -74,30 +82,32 @@ namespace XmlValidation
         {
             try
             {
-                WebClient webClient = new WebClient();
-                string HtmlSource = webClient.DownloadString(url);
+                using (WebClient webClient = new WebClient())
+                {
+                    string HtmlSource = webClient.DownloadString(url);
 
-                return true;
+                    return true;
+                }
+
             }
             catch (Exception)
             {
                 return false;
             }
         }
-       
 
         public List<string> LinksFromFile(string filePath)
         {
             var tempList = new List<string>();
             var result = new List<string>();
             var linkParser = new Regex(@"((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-            var resultt = Directory.GetFiles(filePath, "*.xsd", SearchOption.TopDirectoryOnly).ToList();
+            var localFiles = Directory.GetFiles(filePath, "*.xsd", SearchOption.TopDirectoryOnly).ToList();
 
-            foreach (var file in resultt)
+            foreach (var file in localFiles)
             {
                 fileList.Add(file);
-
             }
+
             foreach (var file in fileList)
             {
                 var page = File.ReadAllText(file);
@@ -110,12 +120,11 @@ namespace XmlValidation
 
             foreach (string link in tempList)
             {
-                if (!link.Contains(filePath) && link.Contains(".xsd"))
+                if (link.Contains(".xsd") || link.Contains(".xml"))
                 {
                     DownloadFile(link);
-                    
                 }
-                else if (!link.Contains(".xsd") && !link.Contains(".xsl"))
+                else if (!link.Contains(".xsd") || !link.Contains(".xsl"))
                 {
                     foreach (var item in AddLinksToDictionaryFromHtmlAndDownload(link))
                     {
@@ -133,6 +142,7 @@ namespace XmlValidation
             {
                 tempList.Add(item);
             }
+
             return tempList;
         }
 
@@ -143,7 +153,7 @@ namespace XmlValidation
                 foreach (string link in LinksFromFile(filePath))
                 {
                     if (!FinalList.Contains(link))
-                    { 
+                    {
                         Console.WriteLine(link);
                         FinalList.Add(link);
                         SearchFolderRecursive(link);

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://crd.gov.pl/wzor/2008/05/09/1/styl.xsl"?><wyr:Dokument xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2008/05/09/" xmlns:inst="http://crd.gov.pl/xml/schematy/instytucja/2008/05/09/" xmlns:meta="http://crd.gov.pl/xml/schematy/meta/2008/05/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2008/05/09/" xmlns:str="http://crd.gov.pl/xml/schematy/struktura/2008/05/09/" xmlns:wyr="http://crd.gov.pl/wzor/2008/05/09/1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://crd.gov.pl/wzor/2008/05/09/1/ http://crd.gov.pl/wzor/2008/05/09/1/schemat.xsd">
+	<wyr:OpisDokumentu>
+		<meta:Data typDaty="opublikowany">
+			</meta:Data>
+		<meta:Identyfikator typIdentyfikatora="JednolityIdentyfikator">
+			<meta:Wartosc>http://crd.gov.pl/wzor/2019/11/08/8836/wyroznik.xml</meta:Wartosc>
+		</meta:Identyfikator>
+		<meta:Dostep>
+			<meta:Dostepnosc>wszystko</meta:Dostepnosc>
+			<meta:Uwagi></meta:Uwagi>
+		</meta:Dostep>
+		<meta:RodzajDokumentu>
+			<meta:Kategoria>tekst</meta:Kategoria>
+			<meta:RodzajKategorii>Podatek VAT</meta:RodzajKategorii>
+		</meta:RodzajDokumentu>
+		<meta:Relacja>
+			<meta:Identyfikator typIdentyfikatora="URIXSD">
+				<meta:Wartosc>http://crd.gov.pl/wzor/2019/11/08/8836/schemat.xsd</meta:Wartosc>
+			</meta:Identyfikator>
+			<meta:RodzajRelacji>maCzesc</meta:RodzajRelacji>
+		</meta:Relacja>
+		<meta:Relacja>
+			<meta:Identyfikator typIdentyfikatora="URIXSL">
+				<meta:Wartosc>http://crd.gov.pl/wzor/2019/11/08/8836/styl.xsl</meta:Wartosc>
+			</meta:Identyfikator>
+			<meta:RodzajRelacji>maCzesc</meta:RodzajRelacji>
+		</meta:Relacja>
+		<meta:Jezyk kodJezyka="pol">polski</meta:Jezyk>
+	</wyr:OpisDokumentu>
+	<wyr:DaneDokumentu>
+		<str:Naglowek>
+			<str:NazwaDokumentu>VAT-7 - Wyróżnik wzoru deklaracji dla podatku od towarów i usług</str:NazwaDokumentu>
+		</str:Naglowek>
+		<str:Nadawcy>
+			<meta:Podmiot typPodmiotu="Tworca Wzoru Dokumentu Elektronicznego">
+				<inst:Instytucja>
+					<inst:IdInstytucji>
+						<inst:NIP>5260250274</inst:NIP>
+					</inst:IdInstytucji>
+					<inst:NazwaInstytucji>Ministerstwo Finansów</inst:NazwaInstytucji>
+					<adr:Adres>
+						<adr:KodPocztowy>00-916</adr:KodPocztowy>
+						<adr:Poczta>Warszawa</adr:Poczta>
+						<adr:Miejscowosc>Warszawa</adr:Miejscowosc>
+						<adr:Ulica rodzajUlicy="ulica">Świętokrzyska</adr:Ulica>
+						<adr:Budynek>12</adr:Budynek>
+						<adr:Lokal></adr:Lokal>
+						<adr:Kraj>PL</adr:Kraj>
+						<adr:Wojewodztwo>mazowieckie</adr:Wojewodztwo>
+					</adr:Adres>
+				</inst:Instytucja>
+			</meta:Podmiot>
+		</str:Nadawcy>
+	</wyr:DaneDokumentu>
+	<wyr:TrescDokumentu format="text/xml" kodowanie="XML">
+		<wyr:Wartosc>
+			<wyr:NazwaDokumentu>VAT-7 DEKLARACJA DLA PODATKU OD TOWARÓW I USŁUG</wyr:NazwaDokumentu>
+			<wyr:RodzajDokumentu>deklaracja</wyr:RodzajDokumentu>
+			<wyr:PodstawaPrawna>
+				<wyr:NazwaPodstawy>Art. 99 ust. 14 ustawy z dnia 11 marca 2004 r. o podatku od towarów i usług (Dz. U. z 2018 r. poz. 2174, z późn. zm.)</wyr:NazwaPodstawy>
+				<wyr:JednolityIdentyfikatorPodstawy>URI://Dziennik_Ustaw/2018/2174/99/14</wyr:JednolityIdentyfikatorPodstawy>
+			</wyr:PodstawaPrawna>
+			<wyr:WaznoscWzoru typDaty="waznosci">
+				<meta:Od>2019-11-01</meta:Od>
+			</wyr:WaznoscWzoru>
+			<wyr:OpisWzoru>VAT-7(20) DEKLARACJA DLA PODATKU OD TOWARÓW I USŁUG - Wzór dokumentu elektronicznego może być stosowany po upływie dwóch tygodni od daty opublikowania.</wyr:OpisWzoru>
+		</wyr:Wartosc>
+	</wyr:TrescDokumentu>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="id-6eca787660b0033def6d90ae52ce814e"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></ds:SignatureMethod><ds:Reference Id="ID-e88eaa880d96fd43702fe37a963a9d87" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"><ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>JenlJ+QYHhdIHnfEkOBz2em2d90=</ds:DigestValue></ds:Reference><ds:Reference Id="ID-8e72241b1e1aa485ff039175e6633370" URI="schemat.xsd"><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>pXAm1gYpekcvvQTE7iMxhYAIP5g=</ds:DigestValue></ds:Reference><ds:Reference Id="ID-c2904a1363fe6bdce314b884f18a8659" URI="styl.xsl"><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>PLc5QxgBJdXgxgK0AlNcuK07fHo=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xades-id-6eca787660b0033def6d90ae52ce814e"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></ds:DigestMethod><ds:DigestValue>SqKzrsJnFbd3hM6P72HqsRWn9FX7uW72SM1kgElv0Lg=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="value-id-6eca787660b0033def6d90ae52ce814e">LF07O6AgpIMg+zQOACKQHQb9NQLlH0Eq3h0MFdSIwBfi7f3w1c89O+XGdieg5m75Uokz8CPh1ZZ8sp64ihExmqYkIdIRskmEA9EDDNQTVWs85VFTLU2p5no2e7v83nawfyS5IhBt4wQFyQYaigbJ10jJtNn7jsY4L3aIgg5uh4cm5t0w0BODWMr8t/D6jiRxU4B0l+AgYcPc7yyHqd1HLs0H/w0Zef7Ce6sFQl4aKgq736mgSShK6+tvNOBziXA/SK6UMSYZ+FVno5kSCodQ6g7ZLynTd4pVFiYcju5PWlJnFd2iuN1X63rGtEbHXN29eVDmImgdeSZq+Qqcnh4aZw==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>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</ds:X509Certificate></ds:X509Data></ds:KeyInfo><ds:Object><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Target="#id-6eca787660b0033def6d90ae52ce814e"><xades:SignedProperties Id="xades-id-6eca787660b0033def6d90ae52ce814e"><xades:SignedSignatureProperties><xades:SigningTime>2019-11-08T11:52:02Z</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>yIjkHVujJBsBsVvgXUEj/0RN4Z0=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=Centrum Kwalifikowane EuroCert,O=EuroCert Sp. z o.o.,C=PL,2.5.4.97=#0c10564154504c2d39353132333532333739</ds:X509IssuerName><ds:X509SerialNumber>98240592454726220345509633</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#ID-e88eaa880d96fd43702fe37a963a9d87"><xades:MimeType>text/xml</xades:MimeType></xades:DataObjectFormat><xades:DataObjectFormat ObjectReference="#ID-8e72241b1e1aa485ff039175e6633370"><xades:MimeType>application/octet-stream</xades:MimeType></xades:DataObjectFormat><xades:DataObjectFormat ObjectReference="#ID-c2904a1363fe6bdce314b884f18a8659"><xades:MimeType>application/octet-stream</xades:MimeType></xades:DataObjectFormat><xades:CommitmentTypeIndication><xades:CommitmentTypeId><xades:Identifier>http://uri.etsi.org/01903/v1.2.2#ProofOfApproval</xades:Identifier></xades:CommitmentTypeId><xades:AllSignedDataObjects></xades:AllSignedDataObjects></xades:CommitmentTypeIndication></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></wyr:Dokument>
