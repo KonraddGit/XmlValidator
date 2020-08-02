@@ -21,7 +21,7 @@ namespace XmlValidation
             {
                 getAllFiles.SearchFolderRecursive(filePath);
             }
-            else
+            else 
             {
                 Console.WriteLine("Validacja przeszła");
             }

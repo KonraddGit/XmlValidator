@@ -58,13 +58,21 @@ namespace XmlValidation
 
         public void DownloadFilesFromHtml()
         {
-            using (var client = new WebClient())
+            try
             {
-                foreach (var link in urlDictionary)
+                using (var client = new WebClient())
                 {
-                    client.DownloadFile(link.Key, link.Value);
+                    foreach (var link in urlDictionary)
+                    {
+                        client.DownloadFile(link.Key, link.Value);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         public void DownloadFile(string url)
@@ -163,6 +171,11 @@ namespace XmlValidation
             catch (Exception exception)
             {
                 Console.WriteLine(exception.Message);
+            }
+
+            foreach (var item in urlDictionary)
+            {
+                Console.WriteLine(item);
             }
         }
     }

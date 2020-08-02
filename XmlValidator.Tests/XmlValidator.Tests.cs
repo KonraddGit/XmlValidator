@@ -8,13 +8,11 @@ namespace XmlValidation.Tests
     public class XmlValidatiorTest
     {
         [TestMethod]
-        public void CheckingIfStringValueIsDifferentThanNull()
+        public void CheckIfLibraryWorksCorrectly()
         {
-            string filePath = "C:/Users/Konrad/Desktop/Work/Repozytorium Lokalne/xmlvalidator/XmlValidator/ConsoleApp1/bin/Debug/";
             string xmlPath = $"deklaracja.xml";
             string xsdPath = $"schemat.xsd";
-
-            XmlValidator xmlValidator = new XmlValidator(xsdPath, xmlPath, filePath);
+            XmlValidator xmlValidator = new XmlValidator(xsdPath, xmlPath);
 
             
         }
